@@ -134,13 +134,18 @@ const ImageClassifier = () => {
   // Camera handling
     const startCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      videoRef.current.srcObject = stream;
-      setCameraActive(true);
-    } catch (err) {
-      alert('Camera access denied or not available');
-      console.error(err);
-    }
+    const constraints = {
+      video: {
+        facingMode: { ideal: "environment" } // Use back camera on mobile
+      }
+    };
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    videoRef.current.srcObject = stream;
+    setCameraActive(true);
+  } catch (err) {
+    alert('Camera access denied or not available');
+    console.error(err);
+  }
   };
 
   const stopCamera = () => {
