@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import * as tmImage from '@teachablemachine/image';
 import { Camera, Upload, Recycle, Info } from 'lucide-react';
 
-const MODEL_URL = '../tm-my-image-model/';
+const MODEL_URL = '../public/tm-my-image-model/';
 
 const plasticInfo = {
   HDPE: {
